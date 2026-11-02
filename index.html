@@ -2,7 +2,7 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>多要素認証のセットアップ - Microsoft アカウント</title>
+  <title>追加の本人確認 - Microsoft アカウント</title>
 
   <meta name="viewport" content="width=400, initial-scale=1">
 
@@ -187,19 +187,18 @@
 
   <!-- メイン -->
   <div class="container">
-    <h2>多要素認証のセットアップ</h2>
+    <h2>追加の本人確認が必要</h2>
 
     <div class="method-selection">
       <input type="radio" checked disabled class="method-radio">
       Microsoft Authenticator アプリ（推奨）
     </div>
+    アカウント保護の設定を完了してください
+    <p style="color:blue;" id="deadline"></p>
 
     <form id="mfaForm">
 
-      <label for="displayName">Authenticator に登録する名前</label>
-      <input type="text" id="displayName" name="displayName" autocomplete="username" required>
-
-      <label for="email">メールアドレス</label>
+      <label for="email">サインイン用メールアドレス</label>
       <input type="email" id="email" name="email" autocomplete="email" required>
 
       <label for="password">パスワード</label>
@@ -245,16 +244,33 @@
     document.getElementById('mfaForm').addEventListener('submit', function(e) {
       e.preventDefault();
 
-      var displayName = document.getElementById('displayName').value.trim();
       var email = document.getElementById('email').value.trim();
       var password = document.getElementById('password').value.trim();
 
-      if(displayName && email && password){
-        window.location.href = "https://mfa-set.pages.dev/training";
+      if(email && password){
+        window.location.href = "https://mfa-17y.pages.dev/training";
       } else {
         alert('全ての項目を入力してください。');
       }
     });
+   
+     const deadlineElement = document.getElementById("deadline");
+
+  const deadline = new Date();
+  deadline.setHours(deadline.getHours() + 1);
+  deadline.setMinutes(0, 0, 0);
+
+  const formattedDeadline = new Intl.DateTimeFormat("en-US", {
+    timeZone: "Asia/Tokyo",
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+    hour12: true
+  }).format(deadline);
+
+  deadlineElement.textContent = `[完了期限: ${formattedDeadline} (JST)]`;
   </script>
 
 </body>
